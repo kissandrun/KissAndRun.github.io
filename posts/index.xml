@@ -1,0 +1,77 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - No Visitor Website</title>
+        <link>http://example.org/posts/</link>
+        <description>所有文章 | No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 07 May 2021 14:24:53 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>如何充分利用校园网</title>
+    <link>http://example.org/network-1/</link>
+    <pubDate>Fri, 07 May 2021 14:24:53 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/network-1/</guid>
+    <description><![CDATA[校园网非常坑，时不时就断了，但校园网也非常的良心，因为他连接校内IP不要钱，不要钱，不要钱，还是上下对等千兆！设备连上了的校园网就会得到一个]]></description>
+</item><item>
+    <title>最简nnUNet训练-医学影像处理入门课程</title>
+    <link>http://example.org/nnunet-2/</link>
+    <pubDate>Mon, 19 Apr 2021 16:35:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/nnunet-2/</guid>
+    <description><![CDATA[最简 nnUNet 训练 准备数据 获得数据 已经将大家分割的图像进行了格式整理和一些预处理，并将其存放在如下目录下volume和label分别是原图和大家手动]]></description>
+</item><item>
+    <title>👨‍💻Windows 下优秀软件推荐(2)</title>
+    <link>http://example.org/app-1/</link>
+    <pubDate>Wed, 31 Mar 2021 19:06:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/app-1/</guid>
+    <description><![CDATA[Windows下不仅仅有 360全家桶，腾讯全家桶等毒瘤软件，也有很多优秀的效率工具。本文将介绍一些能够大大提升开发效率。 RaiDrive 硬盘映射工具 RaiDrive 是一]]></description>
+</item><item>
+    <title>如何用远程服务器进行开发？</title>
+    <link>http://example.org/remote-ssh/</link>
+    <pubDate>Fri, 26 Mar 2021 20:01:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/remote-ssh/</guid>
+    <description><![CDATA[作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无]]></description>
+</item><item>
+    <title>nnUNet 使用不完全指南（下）</title>
+    <link>http://example.org/nnunet-1/</link>
+    <pubDate>Wed, 17 Mar 2021 14:42:40 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/nnunet-1/</guid>
+    <description><![CDATA[确定最好的 UNet 配置 当模型训练完成之后，使用下面的链接自动选择合适的 UNet 配置。 1 nnUNet_find_best_configuration -m 2d 3d_fullres 3d_lowres 3d_cascade_fullres -t XXX --strict 注意：五折交叉验证需要全部训练完成。同理 XXX 代表你]]></description>
+</item><item>
+    <title>nnUNet 使用不完全指南（上）</title>
+    <link>http://example.org/nnunet-0/</link>
+    <pubDate>Sun, 14 Mar 2021 16:35:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/nnunet-0/</guid>
+    <description><![CDATA[nnUNet 使用教程 nnUNet 是一个专门用于医学图像的深度学习程序。使用 nnUNet 可以很方便的进行网络的训练和预测。他的集成度很高，能自动的进行合适的预处理，自动的选]]></description>
+</item><item>
+    <title>使用Vim进行Python科学计算编程</title>
+    <link>http://example.org/vim_python/</link>
+    <pubDate>Thu, 26 Nov 2020 16:02:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/vim_python/</guid>
+    <description><![CDATA[Python 作为一种脚本代码，不需要配置复杂的编译环境，而 Vim 具有优秀的英文编辑能力，使用Vim编辑Python是非常不错的选择。科学计算使用 Anaconda 构建虚拟]]></description>
+</item><item>
+    <title>WSL使用本地代理和git clone加速</title>
+    <link>http://example.org/git_speedup/</link>
+    <pubDate>Wed, 25 Nov 2020 11:52:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/git_speedup/</guid>
+    <description><![CDATA[平时科学上网时，一般的流程都是这样的，在一个客户端中配置你的V2ray，Trojan信息，然后客户端会设置一个本地的监听端口，常用的比如10]]></description>
+</item><item>
+    <title>Zsh &amp; Zinit 配置舒服的终端环境</title>
+    <link>http://example.org/shell-3/</link>
+    <pubDate>Tue, 24 Nov 2020 15:11:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/shell-3/</guid>
+    <description><![CDATA[为什么不用Bash和Fish Bash是很多Linux发行版的默认shell，但是显然他不是一个最佳的选择，单颜值不够高一条就足以把它抛弃了。]]></description>
+</item><item>
+    <title>SSH&#43;Tmux&#43;Vim: 简单高效 Geek 的工作流</title>
+    <link>http://example.org/myworkflow/</link>
+    <pubDate>Sun, 22 Nov 2020 20:01:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/myworkflow/</guid>
+    <description><![CDATA[作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无]]></description>
+</item></channel>
+</rss>

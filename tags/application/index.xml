@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Application - 标签 - No Visitor Website</title>
+        <link>http://example.org/tags/application/</link>
+        <description>Application - 标签 - No Visitor Website</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 31 Mar 2021 19:06:25 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/application/" rel="self" type="application/rss+xml" /><item>
+    <title>👨‍💻Windows 下优秀软件推荐(2)</title>
+    <link>http://example.org/app-1/</link>
+    <pubDate>Wed, 31 Mar 2021 19:06:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/app-1/</guid>
+    <description><![CDATA[Windows下不仅仅有 360全家桶，腾讯全家桶等毒瘤软件，也有很多优秀的效率工具。本文将介绍一些能够大大提升开发效率。 RaiDrive 硬盘映射工具 RaiDrive 是一]]></description>
+</item><item>
+    <title>👨‍💻Windows 下优秀软件推荐</title>
+    <link>http://example.org/app-0/</link>
+    <pubDate>Wed, 24 Jun 2020 15:11:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/app-0/</guid>
+    <description><![CDATA[macOS下有很多优秀的软件，极大的提升了生产力。人们提到Windows系统下的软件，第一感觉可能是：多而乱，良莠不齐。而且由于不少国产软件]]></description>
+</item></channel>
+</rss>

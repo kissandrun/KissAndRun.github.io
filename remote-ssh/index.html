@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>如何用远程服务器进行开发？ - No Visitor Website</title><meta name="Description" content="就是突然对写博客起了兴趣，明明知道不会坚持。"><meta property="og:title" content="如何用远程服务器进行开发？" />
+<meta property="og:description" content="作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/remote-ssh/" /><meta property="og:image" content="http://example.org/logo.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-26T20:01:23&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-26T20:01:23&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.jpg"/>
+
+<meta name="twitter:title" content="如何用远程服务器进行开发？"/>
+<meta name="twitter:description" content="作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。 常用的方法无"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/logo.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/remote-ssh/" /><link rel="prev" href="http://example.org/nnunet-1/" /><link rel="next" href="http://example.org/app-1/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "如何用远程服务器进行开发？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/remote-ssh\/"
+        },"genre": "posts","keywords": "Vim, Tmux","wordcount":  927 ,
+        "url": "http:\/\/example.org\/remote-ssh\/","datePublished": "2021-03-26T20:01:23+08:00","dateModified": "2021-03-26T20:01:23+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "韩呓"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="No Visitor Website">No Visitor Website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📚 全部文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">📊 分类 </a><a class="menu-item" href="https://kissandrun.notion.site/Engineering-Wiki-a2d7aa4e8c3145f0af9a8cf154a5d3c5" rel="noopener noreffer" target="_blank">📖️ Notion </a><a class="menu-item" href="/about/">👨 About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="No Visitor Website">No Visitor Website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">📚全部文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">📊分类</a><a class="menu-item" href="https://kissandrun.notion.site/Engineering-Wiki-a2d7aa4e8c3145f0af9a8cf154a5d3c5" title="" rel="noopener noreffer" target="_blank">📖️Notion</a><a class="menu-item" href="/about/" title="">👨About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">如何用远程服务器进行开发？</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>韩呓</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%98%E8%85%BE%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw"></i>折腾指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-26">2021-03-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 927 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh-secure-shell">SSH (Secure Shell)</a></li>
+    <li><a href="#visual-studio-code">Visual Studio Code</a>
+      <ul>
+        <li><a href="#remote-ssh--远程开发httpsmarketplacevisualstudiocomitemsitemnamems-vscode-remoteremote-ssh"><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote-SSH / 远程开发</a></a></li>
+        <li><a href="#pythonhttpsmarketplacevisualstudiocomitemsitemnamems-pythonpython插件"><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>插件</a></li>
+        <li><a href="#python远程调试">Python远程调试</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>作为一个炼丹术士，操作服务器是家常便饭，如何高效的操作服务器，管理环境，运行代码便成了头等大事。炼的好不好先不说，得先炼得舒服。</p>
+<p>常用的方法无非以下几种：</p>
+<ol>
+<li>利用远程桌面（<strong>teamviewer</strong>，<strong>VNC</strong> 等工具）全程 <strong>GUI</strong> 操作</li>
+<li>利用本地端的 <strong>IDE</strong>（如 <strong>Pycharm</strong>）或者代码编辑器（如 <strong>VS Code</strong> 等）写代码，然后利用他们的 <strong>Remote Tools</strong> 进行代码上传等</li>
+<li><strong>SSH</strong> 到远程服务器，全程 <strong>CLI</strong> 操作</li>
+</ol>
+<p>本文将详细介绍这三种开发的方式</p>
+<h2 id="ssh-secure-shell">SSH (Secure Shell)</h2>
+<p>如果你操作远程服务器，那你一定接触过 SSH，如果没有那一定是没到家。SSH是最为基础的连接远程服务器的方法。<code>windows</code>的<code>powershell</code>和几乎所有的<code>Linux</code>发行版都自带<code>SSH</code>，可以在终端中使用。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://atulhost.com/wp-content/uploads/2020/04/ssh.png"
+        data-srcset="https://atulhost.com/wp-content/uploads/2020/04/ssh.png, https://atulhost.com/wp-content/uploads/2020/04/ssh.png 1.5x, https://atulhost.com/wp-content/uploads/2020/04/ssh.png 2x"
+        data-sizes="auto"
+        alt="https://atulhost.com/wp-content/uploads/2020/04/ssh.png"
+        title="https://atulhost.com/wp-content/uploads/2020/04/ssh.png" />
+常用的命令是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh user@domain.com
+
+比如
+ssh hth@10.9.xx.xx
+
+如果有端口限制则需要加入 -p 参数
+ssh -p 端口号 user@domain.com
+</code></pre></td></tr></table>
+</div>
+</div><p><code>Windows</code>下也可以使用<code>PuTTY</code>等工具使用<code>SSH</code>。这里不得不再推荐一下<code>Windows Subsystem for Linux</code>因为服务器是<code>Linux</code>系统，统一一下环境岂不美哉。</p>
+<p>连接上之后就是一个小黑框，里面就可以输入命令行了，可以使用命令行工具比如<strong>Tmux</strong>和<strong>Vim</strong>进行开发了，不过单纯的使用<strong>CLI</strong>比较的难，可以采用<strong>Visual Studio Code</strong> 进行开发。</p>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreffer">VSCode</a> 是一个全平台通用的文本编辑器，在官网下载安装即可。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/TianYang-TY/myPic/20201124145300.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/TianYang-TY/myPic/20201124145300.png, https://cdn.jsdelivr.net/gh/TianYang-TY/myPic/20201124145300.png 1.5x, https://cdn.jsdelivr.net/gh/TianYang-TY/myPic/20201124145300.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/TianYang-TY/myPic/20201124145300.png"
+        title="https://cdn.jsdelivr.net/gh/TianYang-TY/myPic/20201124145300.png" /></p>
+<h3 id="remote-ssh--远程开发httpsmarketplacevisualstudiocomitemsitemnamems-vscode-remoteremote-ssh"><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh" target="_blank" rel="noopener noreffer">Remote-SSH / 远程开发</a></h3>
+<p>安装方法如下所示：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/29/HxRXdKcWF3UhYwD.png"
+        data-srcset="https://i.loli.net/2021/03/29/HxRXdKcWF3UhYwD.png, https://i.loli.net/2021/03/29/HxRXdKcWF3UhYwD.png 1.5x, https://i.loli.net/2021/03/29/HxRXdKcWF3UhYwD.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/29/HxRXdKcWF3UhYwD.png"
+        title="image-20210329150007094" /></p>
+<p>可以让通过<strong>SSH</strong>连接远程服务器作为本地的开发环境，连接远程服务器最好使用 <strong>SSH key</strong>，不建议使用密码，否则会不停地在输入密码。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/29/YidFl1kwMZDzO4r.png"
+        data-srcset="https://i.loli.net/2021/03/29/YidFl1kwMZDzO4r.png, https://i.loli.net/2021/03/29/YidFl1kwMZDzO4r.png 1.5x, https://i.loli.net/2021/03/29/YidFl1kwMZDzO4r.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/29/YidFl1kwMZDzO4r.png"
+        title="image-20210329145458065" /></p>
+<p>如上图所示，装完最左边的导航栏中就有了远程管理的图标，在里面可以管理你的所有<strong>SSH目标</strong>，此时新建终端出现的也是远程的终端，此时安装插件也将装在远程服务器上。</p>
+<h3 id="pythonhttpsmarketplacevisualstudiocomitemsitemnamems-pythonpython插件"><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" rel="noopener noreffer">Python</a>插件</h3>
+<p>安装方法和上面相似</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/31/G19dLTQgxktUmq5.png"
+        data-srcset="https://i.loli.net/2021/03/31/G19dLTQgxktUmq5.png, https://i.loli.net/2021/03/31/G19dLTQgxktUmq5.png 1.5x, https://i.loli.net/2021/03/31/G19dLTQgxktUmq5.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/31/G19dLTQgxktUmq5.png"
+        title="image-20210329150156803" /></p>
+<p><strong>VSCode</strong> 的 <strong>Python</strong> 扩展，使 <strong>VSCode</strong> 拥有调用 <strong>Python</strong> 解释器的功能。安装成功之后可以新建一个 <code>.py</code> 文件，然后在窗口的左下角选择 <strong>Python</strong> 解释器，<strong>VSCode</strong> 会自动搜索系统中的 <strong>Python</strong> 环境。然后可以 <code>print('hello world')</code> 检查一下是否有问题。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/31/HvEq5oNzmr6dBlO.png"
+        data-srcset="https://i.loli.net/2021/03/31/HvEq5oNzmr6dBlO.png, https://i.loli.net/2021/03/31/HvEq5oNzmr6dBlO.png 1.5x, https://i.loli.net/2021/03/31/HvEq5oNzmr6dBlO.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/31/HvEq5oNzmr6dBlO.png"
+        title="image-20210329151433870" />
+当然细节还有很多，比如代码的美化（Format），错误提示（Lint），代码补全（Completion）等等，这些熟悉了基本操作之后再了解也不迟。</p>
+<h3 id="python远程调试">Python远程调试</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/29/nLOBowWuDmiGrtX.png"
+        data-srcset="https://i.loli.net/2021/03/29/nLOBowWuDmiGrtX.png, https://i.loli.net/2021/03/29/nLOBowWuDmiGrtX.png 1.5x, https://i.loli.net/2021/03/29/nLOBowWuDmiGrtX.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/29/nLOBowWuDmiGrtX.png"
+        title="image-20210329154818966" /></p>
+<p>点击如上框出的按钮,选择调试打开的文件。</p>
+<p>调试前可以在行号前打上断点，然后在进行上面的调试，左侧能查看变量，上方的悬浮框可以进行单步调试。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/03/29/xzkvn6wZyRuOKJL.png"
+        data-srcset="https://i.loli.net/2021/03/29/xzkvn6wZyRuOKJL.png, https://i.loli.net/2021/03/29/xzkvn6wZyRuOKJL.png 1.5x, https://i.loli.net/2021/03/29/xzkvn6wZyRuOKJL.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/03/29/xzkvn6wZyRuOKJL.png"
+        title="image-20210329155203342" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-26</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/remote-ssh/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/remote-ssh/" data-title="如何用远程服务器进行开发？" data-hashtags="Vim,Tmux"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/remote-ssh/" data-hashtag="Vim"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://example.org/remote-ssh/" data-title="如何用远程服务器进行开发？" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/remote-ssh/" data-title="如何用远程服务器进行开发？"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/remote-ssh/" data-title="如何用远程服务器进行开发？" data-ralateuid="KissAndRun_"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/remote-ssh/" data-title="如何用远程服务器进行开发？" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/remote-ssh/" data-title="如何用远程服务器进行开发？" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/remote-ssh/" data-title="如何用远程服务器进行开发？"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vim/">Vim</a>,&nbsp;<a href="/tags/tmux/">Tmux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/nnunet-1/" class="prev" rel="prev" title="nnUNet 使用不完全指南（下）"><i class="fas fa-angle-left fa-fw"></i>nnUNet 使用不完全指南（下）</a>
+            <a href="/app-1/" class="next" rel="next" title="👨‍💻Windows 下优秀软件推荐(2)">👨‍💻Windows 下优秀软件推荐(2)<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-0J030M6EKZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-0J030M6EKZ" async></script></body>
+</html>
